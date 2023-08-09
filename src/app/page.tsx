@@ -16,7 +16,7 @@ export default function Home() {
             <ItemNav text='Perfil' menu={[]}></ItemNav>
               <Profile/>
             <ItemNav text='Serviços' menu={['Arquitetônicos','Interiores', 'Regularização']}></ItemNav>
-            <div className='bg-gold-first w-[350px] h-[1px] '/>
+            <div/>
           </ul>
         </nav>
       </header>
