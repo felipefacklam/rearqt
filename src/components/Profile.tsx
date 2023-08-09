@@ -21,11 +21,11 @@ export default function Profile() {
             drop-shadow-md text-sm text-center
             `}>Renata M. d'Avila</h4>
             <Image
-            src={'/profile-pic.jpg'}
+            src={'/logo-1x1.jpeg'}
             width={120}
             height={120}
             alt="profile-pic"
-            className={`rounded-full drop-shadow-md`}
+            // className={`rounded-full drop-shadow-md`}
             />
         </div>
     )

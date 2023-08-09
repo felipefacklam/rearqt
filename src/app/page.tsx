@@ -10,13 +10,13 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-slate-200 ">
       <header>
-        <nav className='px-10'>
+        <nav className='w-screen px-10'>
           <ul className={`flex items-center gap-6`}>
-            <div className='bg-gold-first w-[350px] '/>
+            <div className='bg-gold-first flex-1 h-[1px]'/>
             <ItemNav text='Perfil' menu={[]}></ItemNav>
               <Profile/>
             <ItemNav text='Serviços' menu={['Arquitetônicos','Interiores', 'Regularização']}></ItemNav>
-            <div/>
+            <div className='bg-gold-first flex-1 h-[1px]'/>
           </ul>
         </nav>
       </header>
