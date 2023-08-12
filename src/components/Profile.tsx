@@ -7,7 +7,7 @@ export default function Profile() {
         flex flex-col gap-2
         justify-center items-center
         pt-2 px-6 pb-6 rounded-b-full 
-        bg-green-first drop-shadow-md
+        bg-green-primary drop-shadow-md
         `}>
             <Image
             src={'/divider-pic.png'}
@@ -17,7 +17,7 @@ export default function Profile() {
             className='drop-shadow-md'
             />
             <h4 className={`
-            text-brown-first font-semibold
+            text-brown-primary font-semibold
             drop-shadow-md text-sm text-center
             `}>Renata M. d'Avila</h4>
             <Image

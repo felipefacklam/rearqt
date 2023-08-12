@@ -9,14 +9,14 @@ import Image from 'next/image'
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-slate-200 ">
-      <header>
+      <header className='z-50'>
         <nav className='w-screen px-10'>
           <ul className={`flex items-center gap-6`}>
-            <div className='bg-gold-first flex-1 h-[1px]'/>
+            <div className='bg-gold-primary flex-1 h-[1px]'/>
             <ItemNav text='Perfil' menu={[]}></ItemNav>
               <Profile/>
             <ItemNav text='Serviços' menu={['Arquitetônicos','Interiores', 'Regularização']}></ItemNav>
-            <div className='bg-gold-first flex-1 h-[1px]'/>
+            <div className='bg-gold-primary flex-1 h-[1px]'/>
           </ul>
         </nav>
       </header>

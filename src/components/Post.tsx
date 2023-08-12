@@ -11,15 +11,15 @@ interface PostProps{
 }
 export default function Post(props: PostProps) {
     return(
-        <div className='flex text-gold-first h-[500px]'>
+        <div className='flex text-gold-primary h-[500px]'>
             <div className='flex flex-col gap-14 justify-center items-center w-[500px] p-12'>   
                 <div className='flex'>
-                    <h2 className='text-3xl text-gold-first underline underline-offset-4 drop-shadow-2xl'>
+                    <h2 className='text-3xl text-gold-primary underline underline-offset-4 drop-shadow-2xl'>
                         {props.title1}
-                        <span className='text-3xl text-green-first drop-shadow-2xl'> {props.title2}</span>
+                        <span className='text-3xl text-green-primary drop-shadow-2xl'> {props.title2}</span>
                     </h2>
                 </div>
-                <p className='text-xl  text-brown-first text-justify drop-shadow-2xl'>{props.text}</p>
+                <p className='text-xl  text-brown-primary text-justify drop-shadow-2xl'>{props.text}</p>
             </div>
             <div className='flex gap-4'>
                 <Image

@@ -14,9 +14,9 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'green-first': '#97ac95',
-        'brown-first': '#614d42',
-        'gold-first': '#D6B576',
+        'green-primary': '#97ac95',
+        'brown-primary': '#614d42',
+        'gold-primary': '#D6B576',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
