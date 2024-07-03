@@ -4,6 +4,7 @@ import { useState } from "react";
 
 interface ItemNavProps {
   text: string;
+  routes: string[];
   menu: string[];
 }
 
@@ -20,20 +21,18 @@ export default function ItemNav(props: ItemNavProps) {
     >
       <button className="drop-shadow-sm">{props.text}</button>
       <div className={`
-      absolute hidden group-hover:flex hover:flex
-      flex-col bg-inherit w-40 border border-t-8 rounded-b-md
+        absolute hidden group-hover:flex hover:flex
+        flex-col bg-inherit w-40 border border-t-8 rounded-b-md
       `}>
         <ul className="flex flex-col gap-2 px-2 py-4">
-          {props.menu.map((l) => {
-            return (
-                <Link href={"/"} key={l} className={`
-                   underline-animation
-                   hover:border-b-2 border-green-primary
-                `}>
-                  {l}
-                </Link>
-            );
-          })}
+          {props.routes.map((route, index) => (
+            <Link href={`/${route}`} key={index} className={`
+              underline-animation
+              hover:border-b-2 border-green-primary
+            `}>
+              {props.menu[index]}
+            </Link>
+          ))}
         </ul>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 export default function Footer() {
     return(
         <div className={` flex justify-between items-center
@@ -12,27 +13,33 @@ export default function Footer() {
                 </div>
             </div>
             <div className="flex gap-2 pr-[200px]">
+            <Link href={'https://br.linkedin.com/in/renata-mesquita-d-avila-800404197'} target="_blank">
             <Image
                 src="/icons/linkedin.png"
                 width={24}
                 height={24}
-                alt="linkedin"
+                alt="Linkedin"
                 className='flex'
             />
+            </Link>
+            <Link href={'https://www.instagram.com/re.arqt/'} target="_blank">
             <Image
                 src="/icons/instagram.png"
                 width={24}
                 height={24}
-                alt="linkedin"
+                alt="Instagram"
                 className=''
-            />
+                />
+            </Link>
+            <Link href={''} target="_blank">
             <Image
                 src="/icons/facebook.png"
                 width={24}
                 height={24}
-                alt="linkedin"
+                alt="Facebook"
                 className=''
             />
+            </Link>
             </div>
         </div>
     )

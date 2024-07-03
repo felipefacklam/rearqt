@@ -1,6 +1,6 @@
 import Image from 'next/image'
 
-interface PostProps{
+interface ArticlePrimaryProps{
     title1: string
     title2: string
     text: string
@@ -9,10 +9,10 @@ interface PostProps{
     image3: string;
     image4: string;
 }
-export default function Post(props: PostProps) {
+export default function ArticlePrimary(props: ArticlePrimaryProps) {
     return(
-        <div className='flex text-gold-primary h-[500px]'>
-            <div className='flex flex-col gap-14 justify-center items-center w-[500px] p-12'>   
+        <div className='flex justify-center text-gold-primary p-10 drop-shadow-lg'>
+            <div className='flex flex-col gap-14 justify-center  w-[500px] p-12'>   
                 <div className='flex'>
                     <h2 className='text-3xl text-gold-primary underline underline-offset-4 drop-shadow-2xl'>
                         {props.title1}
