@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { useState } from "react";
 
-interface ItemNavProps {
+interface NavServicosProps {
   text: string;
   routes: string[];
   menu: string[];
 }
 
-export default function ItemNav(props: ItemNavProps) {
+export default function NavSericos(props: NavServicosProps) {
   return (
     <div
       className={`group

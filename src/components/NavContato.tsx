@@ -2,12 +2,12 @@
 import Link from "next/link";
 import { useState } from "react";
 
-interface ItemNavContatoProps {
+interface NavContatoProps {
   text: string;
   menu: string[];
 } 
 
-export default function ItemNavContato(props: ItemNavContatoProps) {
+export default function NavContato(props: NavContatoProps) {
   return (
     <div
       className={`group

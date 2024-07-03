@@ -1,4 +1,3 @@
-import styles from 'profile.module.css';
 import Image from "next/image";
 
 export default function Profile() {

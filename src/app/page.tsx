@@ -1,10 +1,11 @@
 import Footer from '@/components/Footer'
-import ItemNav from '@/components/ItemNav'
 import Profile from '@/components/Profile'
 import ArticlePrimary from '@/components/ArticlePrimary'
 import ArticleSecondary from '@/components/ArticleSecondary'
 import ArticleTertiary from '@/components/ArticleTertiary'
-import ItemNavContato from '@/components/ItemNavContato'
+import NavContato from '@/components/NavContato'
+import NavServicos from '@/components/NavServicos'
+
 
 export default function Home() {
   return (
@@ -13,9 +14,9 @@ export default function Home() {
         <nav className='w-screen px-10'>
           <ul className={`flex items-center gap-6`}>
             <div className='bg-gold-primary flex-1 h-[1px]'/>
-            <ItemNavContato text='Contato' menu={['WhatsApp', 'Instagram']}></ItemNavContato>
+            <NavContato text='Contato' menu={['WhatsApp', 'Instagram']}></NavContato>
               <Profile/>
-            <ItemNav text='Serviços' routes={['arquitetonicosPage', 'interioresPage', 'consultoriaPage', 'regularizacaoPage']} menu={['Arquitetônicos','Interiores', 'Iluminação', 'Regularização']}></ItemNav>
+            <NavServicos text='Serviços' routes={['arquitetonicosPage', 'interioresPage', 'consultoriaPage', 'regularizacaoPage']} menu={['Arquitetônicos','Interiores', 'Iluminação', 'Regularização']}></NavServicos>
             <div className='bg-gold-primary flex-1 h-[1px]'/>
           </ul>
         </nav>
