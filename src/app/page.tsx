@@ -16,7 +16,7 @@ export default function Home() {
             <div className='bg-gold-primary flex-1 h-[1px]'/>
             <NavContato text='Contato' menu={['WhatsApp', 'Instagram']}></NavContato>
               <Profile/>
-            <NavServicos text='Serviços' routes={['arquitetonicosPage', 'interioresPage', 'consultoriaPage', 'regularizacaoPage']} menu={['Arquitetônicos','Interiores', 'Iluminação', 'Regularização']}></NavServicos>
+            <NavServicos text='Serviços' routes={['arquitetonicosPage', 'interioresPage', 'iluminacaoPage', 'regularizacaoPage']} menu={['Arquitetônicos','Interiores', 'Iluminação', 'Regularização']}></NavServicos>
             <div className='bg-gold-primary flex-1 h-[1px]'/>
           </ul>
         </nav>
