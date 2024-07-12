@@ -1,12 +1,27 @@
-'use client'
+'use client';
 
-import React, { useState } from 'react';
+import { useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import { useState, useEffect } from 'react';
 
 export default function FormProjetoPage() {
+  const { data: session, status } = useSession();
+  const router = useRouter();
+
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [type, setType] = useState('');
   const [images, setImages] = useState([]); // Array to store image data
+
+  useEffect(() => {
+    if (status === 'unauthenticated') {
+      router.push('/loginPage');
+    }
+  }, [status, router]);
+
+  if (status === 'loading') {
+    return <div>Loading...</div>;
+  }
 
   const handleAddProject = async (event) => {
     event.preventDefault();
@@ -15,7 +30,7 @@ export default function FormProjetoPage() {
       title,
       description,
       type,
-      images, // Add image data to the project object
+      images,
     };
 
     try {
@@ -42,17 +57,17 @@ export default function FormProjetoPage() {
 
   const handleImageUpload = (event) => {
     const uploadedFiles = event.target.files;
-  
+
     const newImages = Array.from(uploadedFiles).map((file) => ({
       url: URL.createObjectURL(file), // Create URL for each file
       description: '', // Placeholder description
     }));
-  
+
     setImages([...images, ...newImages]); // Add all new images to the state
   };
-  
 
   return (
+    <SessionProvider>
     <div>
       <h1>Add Project</h1>
 
@@ -81,28 +96,28 @@ export default function FormProjetoPage() {
         </select>
 
         <label htmlFor="images">Images:</label>
-      <div>
-        {images.map((image, index) => (
-          <div key={index}>
-            <img src={image.url} alt="Uploaded Image" width={100} height={100} />
-            <input
-              type="text"
-              placeholder="Image Description"
-              value={image.description}
-              onChange={(event) => {
-                const updatedImages = [...images];
-                updatedImages[index].description = event.target.value;
-                setImages(updatedImages);
-              }}
-            />
-          </div>
-        ))}
-      </div>
-      <input type="file" id="images" multiple onChange={handleImageUpload} />
-
+        <div>
+          {images.map((image, index) => (
+            <div key={index}>
+              <img src={image.url} alt="Uploaded Image" width={100} height={100} />
+              <input
+                type="text"
+                placeholder="Image Description"
+                value={image.description}
+                onChange={(event) => {
+                  const updatedImages = [...images];
+                  updatedImages[index].description = event.target.value;
+                  setImages(updatedImages);
+                }}
+              />
+            </div>
+          ))}
+        </div>
+        <input type="file" id="images" multiple onChange={handleImageUpload} />
 
         <button type="submit">Add Project</button>
       </form>
     </div>
+    </SessionProvider>
   );
 }
