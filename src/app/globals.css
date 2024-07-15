@@ -14,5 +14,18 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --green-primary: '#97ac95';
+    --brown-primary: '#614d42';
+    --gold-primary: '#D6B576';
   }
+}
+
+input {
+  border: none;
+  border-radius: 2px;
+  border-bottom: 2px solid #D6B576;
+}
+
+input:focus {
+  outline: none;
 }

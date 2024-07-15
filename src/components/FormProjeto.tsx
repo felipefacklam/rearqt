@@ -58,11 +58,11 @@ export default function FormProjeto() {
   };
 
   return (
-    <div>
+    <div className='bg-green-primary'>
       <h1>Adicionar Projeto</h1>
 
       <form onSubmit={handleAddProject}>
-        <label htmlFor="title">Title:</label>
+        <label htmlFor="title">Título:</label>
         <input
           type="text"
           id="title"
@@ -71,7 +71,7 @@ export default function FormProjeto() {
           required
         />
 
-        <label htmlFor="description">Description:</label>
+        <label htmlFor="description">Descrição:</label>
         <textarea
           id="description"
           value={description}
@@ -79,7 +79,7 @@ export default function FormProjeto() {
           required
         />
 
-        <label htmlFor="type">Type:</label>
+        <label htmlFor="type">Categoria:</label>
         <select id="type" value={type} onChange={(event) => setType(event.target.value)} required>
           <option value="">Select Type</option>
           <option value="Arquitetônico">Arquitetônico</option>
@@ -88,7 +88,7 @@ export default function FormProjeto() {
           <option value="Regularização">Regularização</option>
         </select>
     
-        <label htmlFor="images">Images:</label>
+        <label htmlFor="images">Imagens:</label>
         <div>
           {images.map((image, index) => (
             <div key={index}>
@@ -108,7 +108,7 @@ export default function FormProjeto() {
         </div>
         <input type="file" id="images" multiple onChange={handleImageUpload} />
 
-        <button type="submit">Add Project</button>
+        <button type="submit">Adicionar projeto</button>
       </form>
     </div>
   );
