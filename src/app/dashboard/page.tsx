@@ -1,29 +1,26 @@
-import ButtonLogout from "@/components/ButtonLogout";
+import { useState } from "react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
-import Image from "next/image";
+import Header from "@/components/Header";
+import FormProjeto from "@/components/FormProjeto";
+import ButtonLogout from "@/components/ButtonLogout";
+import Footer from "@/components/Footer";
 
 export default async function Dashboard() {
   const session = await getServerSession();
 
   if (!session) {
-    redirect("/api/auth/signin");
+    redirect("/loginPage");
+  } else {
+    
+    return (
+      <div className='bg-gold-primary flex-1 h-[1px]'>
+        <Header />
+        <p>Olá, {session?.user?.name}!</p>
+        <ButtonLogout />
+        <FormProjeto />
+        <Footer />
+      </div>
+    );
   }
-  return (
-    <div>
-      <h1>Dashboard</h1>
-      {session.user?.image && (
-        <div>
-          <Image 
-          className="rounded-full"
-          src={session.user?.image} 
-          alt={"Avatar"} 
-          width={150}
-          height={150}/>
-        </div>
-      )}
-      <p>Olá, {session?.user?.name}!</p>
-      <ButtonLogout />
-    </div>
-  );
 }

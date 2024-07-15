@@ -21,7 +21,11 @@ const handler = NextAuth({
         }
 
         if (credentials.username === "rearqt" && credentials.password === "080412") {
-          return { id: '1', name: "Renata d'Avila", email: 'rearqt@example.com', image: '/profile-pic.jpg' }
+          return { id: '1', name: "Renata d'Avila", email: 'rntmdavila@gmail.com', image: '/profile-pic.jpg' }
+        }
+        
+        if (credentials.username === "admin" && credentials.password === "080412") {
+          return { id: '2', name: "Admin", email: 'felipefacklam@gmail.com', image: null }
         }
 
         return null

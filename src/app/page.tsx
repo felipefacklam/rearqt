@@ -1,25 +1,15 @@
 import Footer from '@/components/Footer'
-import Profile from '@/components/Profile'
 import ArticlePrimary from '@/components/ArticlePrimary'
 import ArticleSecondary from '@/components/ArticleSecondary'
 import ArticleTertiary from '@/components/ArticleTertiary'
-import NavContato from '@/components/NavContato'
-import NavServicos from '@/components/NavServicos'
+import Header from '@/components/Header'
 
 
 export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-between bg-zinc-200">
       <header className='z-50'>
-        <nav className='w-screen px-10'>
-          <ul className={`flex items-center gap-6`}>
-            <div className='bg-gold-primary flex-1 h-[1px]'/>
-            <NavContato text='Contato' menu={['WhatsApp', 'Instagram']}></NavContato>
-              <Profile/>
-            <NavServicos text='Serviços' routes={['arquitetonicosPage', 'interioresPage', 'iluminacaoPage', 'regularizacaoPage']} menu={['Arquitetônicos','Interiores', 'Iluminação', 'Regularização']}></NavServicos>
-            <div className='bg-gold-primary flex-1 h-[1px]'/>
-          </ul>
-        </nav>
+        <Header />
       </header>
       <section className='flex flex-col items-center w-screen py-10 gap-10'>
         <ArticlePrimary title1='INTERIORES' title2='criativos e úteis' text='Seu estilo com um design profissional. Explore alguns espaços/ambientes que tive o 

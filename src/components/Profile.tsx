@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export default function Profile() {
     return(
-        <Link href='/api/auth/signin'>
+        <Link href='/loginPage'>
             <div className={`
             flex flex-col gap-2
             justify-center items-center

@@ -1,32 +1,22 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
-import { useRouter } from 'next/navigation';
-import { useState, useEffect } from 'react';
+import { useState, ChangeEvent, FormEvent } from 'react';
 
-export default function FormProjetoPage() {
-  const { data: session, status } = useSession();
-  const router = useRouter();
+interface Image {
+  url: string;
+  description: string;
+}
 
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [type, setType] = useState('');
-  const [images, setImages] = useState([]); // Array to store image data
+export default function FormProjeto() {
+  const [title, setTitle] = useState<string>('');
+  const [description, setDescription] = useState<string>('');
+  const [type, setType] = useState<string>('');
+  const [images, setImages] = useState<Image[]>([]);
 
-  useEffect(() => {
-    if (status === 'unauthenticated') {
-      router.push('/loginPage');
-    }
-  }, [status, router]);
-
-  if (status === 'loading') {
-    return <div>Loading...</div>;
-  }
-
-  const handleAddProject = async (event) => {
+  const handleAddProject = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    const newProject = {
+    const novoProjeto = {
       title,
       description,
       type,
@@ -34,42 +24,42 @@ export default function FormProjetoPage() {
     };
 
     try {
-      const response = await fetch('/api/projects', {
+      const response = await fetch('/api/projetos', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(newProject),
+        body: JSON.stringify(novoProjeto),
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to create project');
-      }
+      console.log('Projeto criado com sucesso.');
 
-      const data = await response.json();
-      console.log('Project created successfully:', data);
+      // Só para limpar os campos depois do envio
+      // event.currentTarget.reset();
+      setTitle('');
+      setDescription('');
+      setType('');
+      setImages([]);
 
-      // Clear form fields or display a success message
     } catch (error) {
-      console.error('Error creating project:', error);
-
-      // Display an error message to the user
+      console.error('Erro ao criar projeto:', error);
     }
   };
 
-  const handleImageUpload = (event) => {
+  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
     const uploadedFiles = event.target.files;
 
-    const newImages = Array.from(uploadedFiles).map((file) => ({
-      url: URL.createObjectURL(file), // Create URL for each file
-      description: '', // Placeholder description
-    }));
+    if (uploadedFiles) {
+      const newImages = Array.from(uploadedFiles).map((file) => ({
+        url: URL.createObjectURL(file),
+        description: '',
+      }));
 
-    setImages([...images, ...newImages]); // Add all new images to the state
+      setImages((prevImages) => [...prevImages, ...newImages]);
+    }
   };
 
   return (
-    <SessionProvider>
     <div>
-      <h1>Add Project</h1>
+      <h1>Adicionar Projeto</h1>
 
       <form onSubmit={handleAddProject}>
         <label htmlFor="title">Title:</label>
@@ -78,6 +68,7 @@ export default function FormProjetoPage() {
           id="title"
           value={title}
           onChange={(event) => setTitle(event.target.value)}
+          required
         />
 
         <label htmlFor="description">Description:</label>
@@ -85,16 +76,18 @@ export default function FormProjetoPage() {
           id="description"
           value={description}
           onChange={(event) => setDescription(event.target.value)}
+          required
         />
 
         <label htmlFor="type">Type:</label>
-        <select id="type" value={type} onChange={(event) => setType(event.target.value)}>
+        <select id="type" value={type} onChange={(event) => setType(event.target.value)} required>
+          <option value="">Select Type</option>
           <option value="Arquitetônico">Arquitetônico</option>
           <option value="Interiores">Interiores</option>
           <option value="Iluminação">Iluminação</option>
           <option value="Regularização">Regularização</option>
         </select>
-
+    
         <label htmlFor="images">Images:</label>
         <div>
           {images.map((image, index) => (
@@ -118,6 +111,5 @@ export default function FormProjetoPage() {
         <button type="submit">Add Project</button>
       </form>
     </div>
-    </SessionProvider>
   );
 }
