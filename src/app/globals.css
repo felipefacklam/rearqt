@@ -14,9 +14,9 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
-    --green-primary: '#97ac95';
-    --brown-primary: '#614d42';
-    --gold-primary: '#D6B576';
+    --green-primary: #97ac95;
+    --brown-primary: #614d42;
+    --gold-primary: #D6B576;
   }
 }
 
@@ -28,4 +28,11 @@ input {
 
 input:focus {
   outline: none;
+}
+
+.button {
+  background-color: var(--green-primary);
+  padding: 6px 12px;
+  border-radius: 2px; 
+  font-weight: bold;
 }

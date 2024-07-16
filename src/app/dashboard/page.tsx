@@ -14,15 +14,15 @@ export default async function Dashboard() {
   } else {
     
     return (
-      <div className='min-h-screen'>
+      <div className='h-screen'>
         <Header />
         <div className="flex items-center justify-center gap-2">
           <p>Olá, {session?.user?.name}!</p>
           <ButtonLogout />
         </div>
-        <div className="flex">
-          <FormProjeto />
-          <div className="bg-gold-primary">Editar</div>
+        <div className="flex justify-center items-center gap-x-40 h-40 w-screen bg-gold-primary">
+          <button className="button">Novo Projeto</button>
+          <button className="button">Editar</button>
         </div>
         <Footer />
       </div>

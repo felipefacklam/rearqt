@@ -6,7 +6,7 @@ export default function ButtonLogout() {
   return (
     <div>
         <button onClick={() => signOut()}
-            className="bg-green-primary p-2 rounded-sm font-bold"
+            className="button"
             >Logout
         </button>
     </div>

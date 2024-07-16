@@ -41,7 +41,7 @@ export default function LoginPage() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button type="submit" className="bg-green-primary p-2 rounded-sm">
+        <button type="submit" className="button">
           Login
         </button>
       </form>
