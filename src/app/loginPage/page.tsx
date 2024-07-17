@@ -6,15 +6,21 @@ import { signIn } from "next-auth/react";
 export default function LoginPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
-    await signIn("credentials", {
-      redirect: true,
-      callbackUrl: "/dashboard",
+    const result = await signIn("credentials", {
+      redirect: false,
       username,
       password,
     });
+
+    if (result?.error) {
+      setError("Usuário ou senha incorretos");
+    } else {
+      window.location.href = "/dashboard";
+    }
   };
 
   return (
@@ -22,7 +28,7 @@ export default function LoginPage() {
       <form
         onSubmit={handleSubmit}
         className="flex flex-col gap-2 w-1/4 p-10 bg-white rounded-xl text-brown-primary font-bold"
-      >
+      >        
         <label htmlFor="username">Usuário:</label>
         <input
           type="text"
@@ -44,6 +50,7 @@ export default function LoginPage() {
         <button type="submit" className="button">
           Login
         </button>
+        {error && <div className="text-red-500">{error}</div>}
       </form>
 
       {/* <button onClick={() => signIn("github", { callbackUrl: '/dashboard'})} 

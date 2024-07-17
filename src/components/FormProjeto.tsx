@@ -33,7 +33,6 @@ export default function FormProjeto() {
       console.log('Projeto criado com sucesso.');
 
       // Só para limpar os campos depois do envio
-      // event.currentTarget.reset();
       setTitle('');
       setDescription('');
       setType('');
@@ -58,57 +57,68 @@ export default function FormProjeto() {
   };
 
   return (
-    <div className='bg-green-primary'>
-      <h1>Adicionar Projeto</h1>
+    <div>
 
-      <form onSubmit={handleAddProject}>
-        <label htmlFor="title">Título:</label>
-        <input
-          type="text"
-          id="title"
-          value={title}
-          onChange={(event) => setTitle(event.target.value)}
-          required
-        />
-
-        <label htmlFor="description">Descrição:</label>
-        <textarea
-          id="description"
-          value={description}
-          onChange={(event) => setDescription(event.target.value)}
-          required
-        />
-
-        <label htmlFor="type">Categoria:</label>
-        <select id="type" value={type} onChange={(event) => setType(event.target.value)} required>
-          <option value="">Select Type</option>
-          <option value="Arquitetônico">Arquitetônico</option>
-          <option value="Interiores">Interiores</option>
-          <option value="Iluminação">Iluminação</option>
-          <option value="Regularização">Regularização</option>
-        </select>
-    
-        <label htmlFor="images">Imagens:</label>
-        <div>
-          {images.map((image, index) => (
-            <div key={index}>
-              <img src={image.url} alt="Uploaded Image" width={100} height={100} />
-              <input
-                type="text"
-                placeholder="Image Description"
-                value={image.description}
-                onChange={(event) => {
-                  const updatedImages = [...images];
-                  updatedImages[index].description = event.target.value;
-                  setImages(updatedImages);
-                }}
-              />
-            </div>
-          ))}
+      <form onSubmit={handleAddProject} className='flex flex-col gap-2 w-100'>
+        <div className='flex flex-col'>
+          <label htmlFor="title">Título:</label>
+          <input
+            className='border border-green-primary rounded-br-2xl'
+            type="text"
+            id="title"
+            value={title}
+            onChange={(event) => setTitle(event.target.value)}
+            required
+          />
         </div>
-        <input type="file" id="images" multiple onChange={handleImageUpload} />
 
-        <button type="submit">Adicionar projeto</button>
+        <div className='flex flex-col'>
+          <label htmlFor="description">Descrição:</label>
+          <textarea
+            className='h-20 border border-green-primary rounded-br-3xl focus:outline-green-primary'
+            id="description"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            required
+          />
+        </div>
+
+        <div className='flex flex-col'>
+          <label htmlFor="type">Categoria:</label>
+          <select 
+            className='block appearance-none w-full border border-green-primary py-3 px-4 pr-8 rounded-br-2xl focus:outline-green-primary' 
+            id="type" value={type} onChange={(event) => setType(event.target.value)} required>
+            <option value="">Selecione a categoria</option>
+            <option value="Arquitetônico">Arquitetônico</option>
+            <option value="Interiores">Interiores</option>
+            <option value="Iluminação">Iluminação</option>
+            <option value="Regularização">Regularização</option>
+          </select>
+        </div>
+    
+        <div className='flex flex-col'>
+          <label htmlFor="images" >Imagens:</label>
+          <div>
+            {images.map((image, index) => (
+              <div key={index}>
+                <img src={image.url} alt="Uploaded Image" width={100} height={100} />
+                <input
+                  type="text"
+                  placeholder="Descrição"
+                  value={image.description}
+                  onChange={(event) => {
+                    const updatedImages = [...images];
+                    updatedImages[index].description = event.target.value;
+                    setImages(updatedImages);
+                  }}
+                />
+              </div>
+            ))}
+          </div>
+          <input type="file" id="images" multiple onChange={handleImageUpload} />
+        </div>
+
+        <button type="submit" className='button '>Adicionar</button>
       </form>
     </div>
   );

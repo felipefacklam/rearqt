@@ -57,11 +57,11 @@ export async function PUT(req: NextRequest, res: NextResponse) {
       message: "Usuário não encontrado!"
     });
   }
-
+  
   return NextResponse.json({
     message: "Usuario atualizado com sucesso!"
   });
-
+  
 }
 
 export async function DELETE(req: NextRequest, res: NextResponse) {
@@ -80,7 +80,7 @@ export async function DELETE(req: NextRequest, res: NextResponse) {
   }
 
   return NextResponse.json({
-    message: "Projeto deletado com sucesso!"
+    message: "Usuário deletado com sucesso!"
   });
 
 }
