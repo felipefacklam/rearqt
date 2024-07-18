@@ -6,6 +6,7 @@ import FormProjeto from "@/components/FormProjeto";
 import ButtonLogout from "@/components/ButtonLogout";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import TableProjetos from "@/components/TableProjetos";
 
 export default async function Dashboard() {
   const session = await getServerSession();
@@ -14,7 +15,7 @@ export default async function Dashboard() {
     redirect("/loginPage");
   } else {
     return (
-      <div className="h-screen">
+      <div className="h-screen bg-zinc-200">
         <Header />
         <div className="flex items-center justify-center gap-2 p-8">
           <p>Olá, {session?.user?.name}!</p>
@@ -25,38 +26,7 @@ export default async function Dashboard() {
             <Link href="/novoProjetoPage">
               <button className="button mb-2">Novo Projeto</button>
             </Link>
-            <table className="table-fixed border-collapse max-w-xl">
-              <thead>
-                <tr>
-                  <th className="border border-slate-600">Título</th>
-                  <th className="border border-slate-600">Imagens</th>
-                  <th className="border border-slate-600">
-                    Última modificação
-                  </th>
-                  <th className="border border-none"></th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td className="border border-slate-700">
-                    Projeto Nome Teste
-                  </td>
-                  <td className="border border-slate-700">5</td>
-                  <td className="border border-slate-700">16/07/2024</td>
-                  <td className="border border-none">
-                    <button className="button w-full">Editar</button>
-                  </td>
-                </tr>
-                <tr>
-                  <td className="border border-slate-700">Projeto 1</td>
-                  <td className="border border-slate-700">7</td>
-                  <td className="border border-slate-700">04/04/2024</td>
-                  <td className="border border-none">
-                    <button className="button w-full">Editar</button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
+            <TableProjetos /> 
           </div>
         </div>
         <Footer />

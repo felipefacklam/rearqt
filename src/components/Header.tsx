@@ -4,7 +4,7 @@ import Profile from "./Profile";
 
 export default function Header() {
   return (
-    <div>
+    <div className="bg-zinc-200">
       <nav className="w-screen px-10">
         <ul className={`flex items-center gap-6`}>
           <div className="bg-gold-primary flex-1 h-[1px]" />
