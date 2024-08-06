@@ -23,7 +23,7 @@ export default function NavContato(props: NavContatoProps) {
         absolute hidden group-hover:flex hover:flex
         flex-col bg-inherit w-40 border border-t-8 rounded-b-md
       `}>
-        <ul className="flex flex-col gap-2 px-2 py-4">
+        <ul className="flex flex-col gap-2  py-4">
             <Link href="https://wa.me/+5551993959971?text=Olá, Arq. Renata! Gostaria de conversar sobre seus serviços." target="_blank" className={`
               underline-animation
               hover:border-b-2 border-green-primary

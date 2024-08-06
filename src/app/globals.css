@@ -21,6 +21,12 @@
   }
 }
 
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+
 input {
   padding: 0.3rem;
   border: none;

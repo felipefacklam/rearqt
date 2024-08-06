@@ -15,13 +15,13 @@ export default async function Dashboard() {
     redirect("/loginPage");
   } else {
     return (
-      <div className="h-screen bg-zinc-200">
+      <div className="flex flex-col min-h-screen bg-zinc-200">
         <Header />
         <div className="flex items-center justify-center gap-2 p-8">
           <p>Olá, {session?.user?.name}!</p>
           <ButtonLogout />
         </div>
-        <div className="flex flex-col justify-center items-center gap-x-40 w-screen bg-gold-primary p-8">
+        <div className="flex flex-grow justify-center items-center gap-x-40 w-screen bg-gold-primary p-8">
           <div>
             <Link href="/novoProjetoPage">
               <button className="button mb-2">Novo Projeto</button>

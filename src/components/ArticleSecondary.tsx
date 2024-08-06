@@ -8,7 +8,7 @@ interface ArticleSecondaryProps {
 }
 export default function ArticleSecondary(props: ArticleSecondaryProps) {
     return (
-        <div className='flex justify-center bg-green-primary w-full h-[500px] text-gold-primary drop-shadow-md border-2 border-y-gold-primary'>
+        <div className='flex justify-center bg-green-primary w-screen h-[500px] text-gold-primary drop-shadow-md border-2 border-y-gold-primary'>
             <Image
                 src={props.image1}
                 width={450}

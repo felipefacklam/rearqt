@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { signIn } from "next-auth/react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 export default function LoginPage() {
   const [username, setUsername] = useState("");
@@ -24,40 +26,37 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex justify-center items-center w-screen h-screen bg-green-primary">
-      <form
-        onSubmit={handleSubmit}
-        className="flex flex-col gap-2 w-1/4 p-10 bg-white rounded-xl text-brown-primary font-bold"
-      >        
-        <label htmlFor="username">Usuário:</label>
-        <input
-          type="text"
-          id="username"
-          value={username}
-          onChange={(e) => setUsername(e.target.value)}
-          autoFocus
-          required
-        />
-
-        <label htmlFor="password">Senha:</label>
-        <input
-          type="password"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <button type="submit" className="button">
-          Login
-        </button>
-        {error && <div className="text-red-500">{error}</div>}
-      </form>
-
-      {/* <button onClick={() => signIn("github", { callbackUrl: '/dashboard'})} 
-          className='bg-green-primary p-2'
-          >
-          Login com GitHub
-      </button> */}
+    <div className="min-h-screen flex flex-col">
+      <Header />
+      <div className="flex flex-grow justify-center items-center bg-green-primary">
+        <form
+          onSubmit={handleSubmit}
+          className="flex flex-col gap-2 w-1/4 p-10 bg-white rounded-xl text-brown-primary font-bold"
+        >
+          <label htmlFor="username">Usuário:</label>
+          <input
+            type="text"
+            id="username"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            autoFocus
+            required
+          />
+          <label htmlFor="password">Senha:</label>
+          <input
+            type="password"
+            id="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+          <button type="submit" className="button">
+            Login
+          </button>
+          {error && <div className="text-red-500">{error}</div>}
+        </form>
+      </div>
+      <Footer />
     </div>
   );
 }
