@@ -17,6 +17,7 @@ module.exports = {
         'green-primary': '#97ac95',
         'brown-primary': '#614d42',
         'gold-primary': '#D6B576',
+        'light-primary': '#d3d3d3',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',

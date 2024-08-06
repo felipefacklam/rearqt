@@ -17,6 +17,7 @@
     --green-primary: #97ac95;
     --brown-primary: #614d42;
     --gold-primary: #D6B576;
+    --light-primary: #d3d3d3;
   }
 }
 
@@ -42,4 +43,12 @@ textarea {
   padding: 0.3rem;
   border-color: #97ac95;
   border-radius: 0.3rem;
+}
+
+th, td {
+  padding: 0.3rem ;
+}
+
+.delete {
+  background-color: #FF3C38;
 }
