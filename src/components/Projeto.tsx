@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 
 interface Image {
-  url: string;
+  data: string; // Agora usamos 'data' para a string Base64
   description: string;
 }
 
@@ -42,43 +42,35 @@ export default function Projeto() {
   }
 
   return (
-    <div className="flexbg-zinc-200 px-60">
-      <h1>{projeto.title}</h1>
+    <div className="flex flex-col bg-zinc-200 px-60">
+      <h1 className="text-3xl font-bold">{projeto.title}</h1>
       <p>{projeto.description}</p>
       <div className="flex flex-col justify-center items-center">
         {projeto.images.length > 0 && (
           <div className="flex flex-col items-center">
-            <Image
-              src={projeto.images[0].url}
+            <img
+              src={projeto.images[0].data} // Usar a string Base64 diretamente como src
               width={800}
               height={400}
               alt={projeto.images[0].description}
-              className="
-                drop-shadow-2xl bg-slate-50 
-                mb-2 scale-95 
-                hover:scale-100 
-                ease-in duration-200"
+              className="drop-shadow-2xl bg-slate-50 m-2 rounded-sm"
             />
-            <p>{projeto.images[0].description}</p>
+            <p className="italic">{projeto.images[0].description}</p>
           </div>
         )}
-        <div className="flex flex-wrap justify-center bg-slate-500">
-            {projeto.images.slice(1).map((image, index) => (
-              <div key={index} className="flex flex-col items-center mt-4">
-                <Image
-                  src={image.url}
-                  width={400}
-                  height={200}
-                  alt={image.description}
-                  className="
-                    drop-shadow-2xl bg-slate-50
-                    mb-2 scale-95
-                    hover:scale-100
-                    ease-in duration-200"
-                />
-                <p>{image.description}</p>
-              </div>
-            ))}
+        <div className="flex flex-wrap justify-center bg-zinc-200 pb-10">
+          {projeto.images.slice(1).map((image, index) => (
+            <div key={index} className="flex flex-col items-center mt-4">
+              <Image
+                src={image.data} // Usar a string Base64 diretamente como src
+                width={400}
+                height={200}
+                alt={image.description}
+                className="drop-shadow-2xl bg-slate-50 m-2 rounded-sm"
+              />
+              <p className="italic">{image.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

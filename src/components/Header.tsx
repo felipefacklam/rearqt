@@ -6,13 +6,13 @@ import Profile from "./Profile";
 export default function Header() {
   return (
     <div className="flex items-center bg-zinc-200 pb-10">
-      <nav className="w-screen px-10">
+      <nav className="flex flex-col gap-4 w-screen px-10">
         <ul className={`flex items-center gap-6`}>
           <div className="bg-gold-primary flex-1 h-[1px]" />
           <NavContato
             text="Contato"
             menu={["WhatsApp", "Instagram"]}
-            ></NavContato>
+          ></NavContato>
           <Profile />
           <NavServicos
             text="Serviços"
@@ -28,10 +28,21 @@ export default function Header() {
               "Iluminação",
               "Regularização",
             ]}
-            ></NavServicos>
+          ></NavServicos>
           <div className="bg-gold-primary flex-1 h-[1px]" />
         </ul>
-            <Link href="/loginPage"><button className="opacity-0 hover:opacity-100 transition-opacity duration-300 button">Login</button></Link>
+        <Link
+          href="/"
+          className="w-40 mx-auto font-semibold text-lg rounded-md
+          text-center
+          text-green-primary
+          hover:bg-gold-primary
+          hover:bg-opacity-70
+          hover:text-brown-primary
+          ease-in duration-300"
+        >
+          <button>Home</button>
+        </Link>
       </nav>
     </div>
   );

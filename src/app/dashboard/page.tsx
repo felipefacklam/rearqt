@@ -21,7 +21,7 @@ export default async function Dashboard() {
           <p>Olá, {session?.user?.name}!</p>
           <ButtonLogout />
         </div>
-        <div className="flex flex-grow justify-center items-center gap-x-40 w-screen bg-gold-primary p-8">
+        <div className="flex flex-grow justify-center items-center gap-x-40 w-screen p-8">
           <div>
             <Link href="/novoProjetoPage">
               <button className="button mb-2">Novo Projeto</button>

@@ -1,5 +1,16 @@
 import mongoose from 'mongoose';
 
+const ImageSchema = new mongoose.Schema({
+  data: {
+    type: String,  // Armazenar a imagem como uma string Base64
+    required: true,
+  },
+  description: {
+    type: String,
+    required: false,
+  },
+});
+
 const ProjetoSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -14,10 +25,7 @@ const ProjetoSchema = new mongoose.Schema({
     enum: ['Arquitetônico', 'Interiores', 'Iluminação', 'Regularização'],
     required: true,
   },
-  images: [{
-    url: String,
-    description: String,
-  }],
+  images: [ImageSchema],
   createdAt: {
     type: Date,
     default: Date.now,

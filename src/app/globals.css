@@ -45,6 +45,13 @@ input:focus {
   font-weight: bold;
 }
 
+.button-login {
+  background-color: var(--gold-primary);
+  padding: 6px 12px;
+  border-radius: 0.2rem; 
+  font-weight: bold;
+}
+
 textarea {
   padding: 0.3rem;
   border-color: #97ac95;

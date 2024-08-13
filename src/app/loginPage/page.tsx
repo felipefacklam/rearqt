@@ -28,10 +28,10 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <div className="flex flex-grow justify-center items-center bg-green-primary">
+      <div className="flex flex-grow justify-center items-center p-10 bg-zinc-200">
         <form
           onSubmit={handleSubmit}
-          className="flex flex-col gap-2 w-1/4 p-10 bg-white rounded-xl text-brown-primary font-bold"
+          className="flex flex-col gap-2 w-1/4 p-10 bg-green-primary rounded-xl text-brown-primary font-bold"
         >
           <label htmlFor="username">Usuário:</label>
           <input
@@ -50,7 +50,7 @@ export default function LoginPage() {
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button type="submit" className="button">
+          <button type="submit" className="button-login">
             Login
           </button>
           {error && <div className="text-red-500">{error}</div>}

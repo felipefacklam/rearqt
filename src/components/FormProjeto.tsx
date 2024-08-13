@@ -3,7 +3,7 @@
 import { useState, ChangeEvent, FormEvent } from 'react';
 
 interface Image {
-  url: string;
+  data: string;
   description: string;
 }
 
@@ -32,7 +32,7 @@ export default function FormProjeto() {
 
       console.log('Projeto criado com sucesso.');
 
-      // Só para limpar os campos depois do envio
+      // Limpar os campos depois do envio
       setTitle('');
       setDescription('');
       setType('');
@@ -43,22 +43,35 @@ export default function FormProjeto() {
     }
   };
 
-  const handleImageUpload = (event: ChangeEvent<HTMLInputElement>) => {
+  const handleImageUpload = async (event: ChangeEvent<HTMLInputElement>) => {
     const uploadedFiles = event.target.files;
 
     if (uploadedFiles) {
-      const newImages = Array.from(uploadedFiles).map((file) => ({
-        url: URL.createObjectURL(file),
-        description: '',
-      }));
+      const newImages = await Promise.all(
+        Array.from(uploadedFiles).map(async (file) => {
+          const base64 = await convertToBase64(file);
+          return {
+            data: base64,
+            description: '',
+          };
+        })
+      );
 
       setImages((prevImages) => [...prevImages, ...newImages]);
     }
   };
 
+  const convertToBase64 = (file: File): Promise<string> => {
+    return new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.readAsDataURL(file);
+      reader.onload = () => resolve(reader.result as string);
+      reader.onerror = (error) => reject(error);
+    });
+  };
+
   return (
     <div>
-
       <form onSubmit={handleAddProject} className='flex flex-col gap-2 w-100'>
         <div className='flex flex-col'>
           <label htmlFor="title">Título:</label>
@@ -101,7 +114,7 @@ export default function FormProjeto() {
           <div>
             {images.map((image, index) => (
               <div key={index}>
-                <img src={image.url} alt="Uploaded Image" width={100} height={100} />
+                <img src={image.data} alt="Uploaded Image" width={100} height={100} />
                 <input
                   type="text"
                   placeholder="Descrição"

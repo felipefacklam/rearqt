@@ -10,7 +10,7 @@ export default function InterioresPage() {
   const router = useRouter();
 
   interface Image {
-    url: string;
+    data: string;
     description: string;
   }
 
@@ -54,7 +54,7 @@ export default function InterioresPage() {
               <div key={projeto._id} onClick={() => handleProjetoClick(projeto._id)} className="cursor-pointer">
                 <h2>{projeto.title}</h2>
                 <Image
-                  src={projeto.images[0].url}
+                  src={projeto.images[0].data}
                   width={400}
                   height={200}
                   alt="image"

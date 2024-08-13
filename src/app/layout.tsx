@@ -2,6 +2,7 @@ import './globals.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import localFont from 'next/font/local'
+import { SessionProvider } from "next-auth/react";
 
 const inter = Inter({ subsets: ['latin'] })
 const lumin = localFont({src: '../fonts/LunarSans.otf'})
