@@ -3,10 +3,16 @@ import Link from "next/link";
 export default function Footer() {
     return(
         <div className={` flex justify-between items-center
-        w-screen h-32 bg-brown-primary px-[200px] py-10`
+        w-screen h-32 bg-green-primary px-[200px] py-10`
         }>
             <div className="flex gap-10 items-center text-white">
-                <h3>LOGO</h3>
+            <Image 
+                src="/icons/logo.jpg"
+                width={40}
+                height={40}
+                alt="Linkedin"
+                className='flex'
+            />
                 <div className="border-l-2 border-gold-primary pl-10 opacity-25">
                     <p className="text-sm">Renata Mesquita d'Avila 2023</p>
                     <p className="text-sm">Desenvolvido por Felipe Facklam</p>

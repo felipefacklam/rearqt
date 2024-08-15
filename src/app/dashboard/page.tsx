@@ -1,8 +1,6 @@
-import { useState } from "react";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 import Header from "@/components/Header";
-import FormProjeto from "@/components/FormProjeto";
 import ButtonLogout from "@/components/ButtonLogout";
 import Footer from "@/components/Footer";
 import Link from "next/link";

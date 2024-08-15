@@ -75,7 +75,7 @@ export default function TableProjetos() {
               <td className="border border-brown-primary">{projeto.updatedAt}</td>
               <td className="border border-none">
                 <div className="flex gap-1">
-                  <Link href={`/editarPage/${projeto._id}`}><button className="button w-full">Editar</button></Link>
+                  <Link href={`/editarProjetoPage/${projeto._id}`}><button className="button w-full">Editar</button></Link>
                   <button className="button w-full delete" onClick={() => handleDelete(projeto._id)}>
                     <Image
                       src="/icons/delete.png"

@@ -4,6 +4,7 @@ import NavServicos from "./NavServicos";
 import Profile from "./Profile";
 
 export default function Header() {
+  
   return (
     <div className="flex items-center bg-zinc-200 pb-10">
       <nav className="flex flex-col gap-4 w-screen px-10">

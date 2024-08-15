@@ -111,12 +111,11 @@ export default function FormProjeto() {
     
         <div className='flex flex-col'>
           <label htmlFor="images" >Imagens:</label>
-          <div>
+          <div className='flex flex-wrap gap-2 justify-between'>
             {images.map((image, index) => (
-              <div key={index}>
+              <div key={index} className='flex flex-col justify-between'>
                 <img src={image.data} alt="Uploaded Image" width={100} height={100} />
-                <input
-                  type="text"
+                <textarea
                   placeholder="Descrição"
                   value={image.description}
                   onChange={(event) => {
