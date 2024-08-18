@@ -41,13 +41,12 @@ export default function FormUsuarioPage() {
       const data = await response.json();
       console.log('User created successfully:', data);
 
-      // Clear form fields or display a success message
+      // limpa campos
       setUsername('');
       setPassword('');
     } catch (error) {
       console.error('Error creating user:', error);
 
-      // Display an error message to the user
     }
   };
 

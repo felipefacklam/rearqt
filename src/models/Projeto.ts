@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const ImageSchema = new mongoose.Schema({
   data: {
-    type: String,  // Armazenar a imagem como uma string Base64
+    type: String,  // imagem como string Base64
     required: true,
   },
   description: {

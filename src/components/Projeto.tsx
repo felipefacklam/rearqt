@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useParams } from "next/navigation";
 
 interface Image {
-  data: string; // Agora usamos 'data' para a string Base64
+  data: string;
   description: string;
 }
 
@@ -49,7 +49,7 @@ export default function Projeto() {
         {projeto.images.length > 0 && (
           <div className="flex flex-col items-center">
             <img
-              src={projeto.images[0].data} // Usar a string Base64 diretamente como src
+              src={projeto.images[0].data}
               width={800}
               height={400}
               alt={projeto.images[0].description}
@@ -62,7 +62,7 @@ export default function Projeto() {
           {projeto.images.slice(1).map((image, index) => (
             <div key={index} className="flex flex-col items-center mt-4">
               <Image
-                src={image.data} // Usar a string Base64 diretamente como src
+                src={image.data}
                 width={400}
                 height={200}
                 alt={image.description}
