@@ -40,7 +40,7 @@ export default function TableProjetos() {
       await fetch(`/api/projetos?id=${id}`, {
         method: "DELETE",
       });
-      setProjetos(projetos?.filter(projeto => projeto._id !== id) || null);
+      setProjetos(projetos?.filter((projeto) => projeto._id !== id) || null);
     } catch (error) {
       console.error("Erro ao deletar projeto:", error);
     }
@@ -56,27 +56,48 @@ export default function TableProjetos() {
 
   return (
     <div>
-      <table className="table-fixed border-collapse max-w-xl">
+      <table className="table-fixed border-collapse">
         <thead>
           <tr>
-            <th className="border border-brown-primary">Título</th>
-            <th className="border border-brown-primary">Imagens</th>
-            <th className="border border-brown-primary">Última modificação</th>
+            <th className="border  bg-gold-primary rounded-tl-lg">Título</th>
+            <th className="border  bg-gold-primary">Categoria</th>
+            <th className="border  bg-gold-primary">Imagens</th>
+            <th className="border  bg-gold-primary rounded-tr-lg">
+              Última modificação
+            </th>
             <th className="border border-none"></th>
           </tr>
         </thead>
         <tbody>
           {projetos.map((projeto, index) => (
-            <tr key={projeto._id}> {/* preciso passar como props para EDITAR */}
-              <td className="border border-brown-primary">{projeto.title}</td>
-              <td className="border border-brown-primary text-center">
-                {projeto.images.length}
+            <tr key={projeto._id} className="even:bg-zinc-200 odd:bg-white">
+              <td className="border ">
+                <Link href={`/editarProjetoPage/${projeto._id}`}>
+                  {projeto.title}
+                </Link>
               </td>
-              <td className="border border-brown-primary">{projeto.updatedAt}</td>
-              <td className="border border-none">
+              <td className="border ">
+                <Link href={`/editarProjetoPage/${projeto._id}`}>
+                  {projeto.type}
+                </Link>
+              </td>
+              <td className="border  text-center">
+                <Link href={`/editarProjetoPage/${projeto._id}`}>
+                  {projeto.images.length}
+                </Link>
+              </td>
+              <td className="border">
+                <Link href={`/editarProjetoPage/${projeto._id}`}>
+                  {projeto.updatedAt}
+                </Link>
+              </td>
+              <td className="border border-none bg-zinc-200">
                 <div className="flex gap-1">
-                  <Link href={`/editarProjetoPage/${projeto._id}`}><button className="button w-full">Editar</button></Link>
-                  <button className="button w-full delete" onClick={() => handleDelete(projeto._id)}>
+                  {/* <Link href={`/editarProjetoPage/${projeto._id}`}><button className="button w-full">Editar</button></Link> */}
+                  <button
+                    className="button w-full delete"
+                    onClick={() => handleDelete(projeto._id)}
+                  >
                     <Image
                       src="/icons/delete.png"
                       alt="Delete"

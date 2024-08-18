@@ -26,6 +26,13 @@ html {
   overflow-x: hidden;
 }
 
+h2 {
+  color:var(--brown-primary);
+}
+
+.top-shadow {
+  box-shadow: 0 -2px 6px 0px rgba(0, 0, 0, 0.200);;
+}
 
 input {
   padding: 0.3rem;
@@ -39,6 +46,14 @@ input:focus {
 }
 
 .button {
+  background-color: transparent;
+  border: solid 0.12rem var(--green-primary);
+  padding: 6px 12px;
+  border-radius: 0.2rem; 
+  font-weight: bold;
+}
+
+.button:hover {
   background-color: var(--green-primary);
   padding: 6px 12px;
   border-radius: 0.2rem; 
@@ -55,13 +70,14 @@ input:focus {
 textarea {
   padding: 0.3rem;
   border-color: #97ac95;
-  border-radius: 0.3rem;
+  border-radius: 0 0 0.5rem 0.125rem;
 }
 
 th, td {
   padding: 0.3rem ;
 }
 
-.delete {
+.delete:hover {
   background-color: #FF3C38;
+  border: solid 0.12rem #FF3C38;
 }

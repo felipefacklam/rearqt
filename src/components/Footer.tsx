@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Footer() {
     return(
         <div className={` flex justify-between items-center
-        w-screen h-32 bg-green-primary px-[200px] py-10`
+        w-screen h-32 bg-green-primary px-[200px] py-10 top-shadow`
         }>
             <div className="flex gap-10 items-center text-white">
             <Image 
@@ -25,7 +25,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 alt="Linkedin"
-                className='flex'
+                className='opacity-60 hover:opacity-100'
             />
             </Link>
             <Link href={'https://www.instagram.com/re.arqt/'} target="_blank">
@@ -34,7 +34,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 alt="Instagram"
-                className=''
+                className='opacity-60 hover:opacity-100'
                 />
             </Link>
             <Link href={''} target="_blank">
@@ -43,7 +43,7 @@ export default function Footer() {
                 width={24}
                 height={24}
                 alt="Facebook"
-                className=''
+                className='opacity-60 hover:opacity-100'
             />
             </Link>
             </div>

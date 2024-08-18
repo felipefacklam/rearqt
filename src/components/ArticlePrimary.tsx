@@ -27,7 +27,7 @@ export default function ArticlePrimary(props: ArticlePrimaryProps) {
                     width={100}
                     height={500}
                     alt="image"
-                    className='drop-shadow-2xl bg-slate-50 rounded-sm mb-2 scale-95 hover:scale-100 ease-in duration-200'
+                    className='drop-shadow-2xl bg-slate-50 rounded-sm mb-2 scale-95 hover:scale-105 ease-in duration-200'
                 />
                 <Image
                     src={props.image2}

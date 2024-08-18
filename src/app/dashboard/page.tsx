@@ -10,7 +10,7 @@ export default async function Dashboard() {
   const session = await getServerSession();
 
   if (!session) {
-    redirect("/loginPage");
+    redirect("/");
   } else {
     return (
       <div className="flex flex-col min-h-screen bg-zinc-200">
@@ -22,7 +22,7 @@ export default async function Dashboard() {
         <div className="flex flex-grow justify-center items-center gap-x-40 w-screen p-8">
           <div>
             <Link href="/novoProjetoPage">
-              <button className="button mb-2">Novo Projeto</button>
+              <button className="button mb-2 bg-transparent ">Novo Projeto</button>
             </Link>
             <TableProjetos /> 
           </div>

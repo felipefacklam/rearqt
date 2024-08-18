@@ -4,12 +4,14 @@ import Link from "next/link";
 import React from "react";
 import FormProjetoEditar from "@/components/FormProjetoEditar";
 import Footer from "@/components/Footer";
+import Header from "@/components/Header";
 
 export default function EditarProjetoPage() {
   const { id } = useParams(); // Captura o ID do projeto da URL
 
   return (
-    <div className="flex flex-col justify-center items-center h-min-screen p-10 bg-gold-primary">
+    <div className="flex flex-col justify-center items-center h-min-screen  bg-zinc-200">
+      <Header />
       <div className="w-2/4 p-10 h-min-screen">
         <Link href={"/dashboard"}>
           <button className="italic">Voltar</button>

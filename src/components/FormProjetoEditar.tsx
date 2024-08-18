@@ -151,9 +151,12 @@ export default function FormProjetoEditar({
 
         <div className="flex flex-col">
           <label htmlFor="images">Imagens:</label>
-          <div className="flex flex-wrap justify-between">
+          <div className="flex flex-wrap justify-between gap-2">
             {images.map((image, index) => (
-              <div key={index} className="flex flex-col gap-2 justify-between">
+              <div
+                key={index}
+                className="flex flex-col items-center justify-end border border-gold-primary rounded-br-xl"
+              >
                 <img
                   src={image.data}
                   alt="Uploaded Image"
@@ -178,11 +181,10 @@ export default function FormProjetoEditar({
             multiple
             onChange={handleImageUpload}
           />
+          <button type="submit" className="py-2 w-2/6 self-end bg-green-primary border hover:border-brown-primary  font-bold rounded-sm">
+            Atualizar
+          </button>
         </div>
-
-        <button type="submit" className="button">
-          Atualizar
-        </button>
       </form>
     </div>
   );

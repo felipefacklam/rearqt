@@ -11,8 +11,8 @@ export default function ArticleSecondary(props: ArticleSecondaryProps) {
         <div className='flex justify-center bg-green-primary w-screen h-[500px] text-gold-primary drop-shadow-md border-2 border-y-gold-primary'>
             <Image
                 src={props.image1}
-                width={450}
-                height={450}
+                width={400}
+                height={400}
                 alt="image"
                 className='drop-shadow-2xl bg-slate-50 rounded-tl-large rounded-sm my-10 scale-95 hover:scale-100 ease-in duration-200'
             />

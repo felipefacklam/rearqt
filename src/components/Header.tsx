@@ -9,7 +9,7 @@ export default function Header() {
     <div className="flex items-center bg-zinc-200 pb-10">
       <nav className="flex flex-col gap-4 w-screen px-10">
         <ul className={`flex items-center gap-6`}>
-          <div className="bg-gold-primary flex-1 h-[1px]" />
+          <div className="bg-gold-primary flex-1 h-[1px] drop-shadow-md" />
           <NavContato
             text="Contato"
             menu={["WhatsApp", "Instagram"]}
@@ -30,10 +30,10 @@ export default function Header() {
               "Regularização",
             ]}
           ></NavServicos>
-          <div className="bg-gold-primary flex-1 h-[1px]" />
+          <div className="bg-gold-primary flex-1 h-[1px] drop-shadow-md" />
         </ul>
         <Link
-          href="/"
+          href="/dashboard"
           className="w-40 mx-auto font-semibold text-lg rounded-md
           text-center
           text-green-primary
@@ -42,7 +42,7 @@ export default function Header() {
           hover:text-brown-primary
           ease-in duration-300"
         >
-          <button>Home</button>
+          <button className="drop-shadow-sm">Home</button>
         </Link>
       </nav>
     </div>
